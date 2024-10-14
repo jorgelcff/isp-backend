@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model arearegiao {
+  id             Int      @id @default(autoincrement())
+  cisp           String
+  aisp           String
+  risp           String
+  area_cisp_km2  Float
+  area_aisp_km2  Float
+  area_risp_km2  Float
+}
+
+model armaapreendida {
+  id                                      Int      @id @default(autoincrement())
+  cisp                                    String
+  mes                                     Int
+  ano                                     Int
+  aisp                                    String
+  risp                                    String
+  arma_fogo_arma_fabricacao_caseira       Int
+  arma_fogo_carabina                      Int
+  arma_fogo_espingarda                    Int
+  arma_fogo_fuzil                         Int
+  arma_fogo_garrucha                      Int
+  arma_fogo_garruchao                     Int
+  arma_fogo_metralhadora                  Int
+  arma_fogo_outros                        Int
+  arma_fogo_pistola                       Int
+  arma_fogo_revolver                      Int
+  arma_fogo_submetralhadora               Int
+  arma_fogo_total                         Int
+  arma_branca_total                       Int
+  artefato_explosivo_armadilha_explosiva  Int
+  artefato_explosivo_armadilha_incendiaria Int
+  artefato_explosivo_bomba_fabricacao_caseira Int
+  artefato_explosivo_granada              Int
+  artefato_explosivo_material_belico_explosivo Int
+  artefato_explosivo_material_explosivo   Int
+  artefato_explosivo_material_explosivo_caseiro Int
+  artefato_explosivo_material_nao_identificado Int
+  artefato_explosivo_total                Int
+  municao_total                           Int
+  simulacro_airsoft                       Int
+  simulacro_arma_fabricacao_caseira       Int
+  simulacro_carabina                      Int
+  simulacro_espingarda                    Int
+  simulacro_fuzil                         Int
+  simulacro_garrucha                      Int
+  simulacro_garruchao                     Int
+  simulacro_metralhadora                  Int
+  simulacro_outros                        Int
+  simulacro_paintball                     Int
+  simulacro_pistola                       Int
+  simulacro_revolver                      Int
+  simulacro_submetralhadora               Int
+  simulacro_total                         Int
+}

@@ -1,0 +1,61 @@
+-- CreateTable
+CREATE TABLE `AreaRegiao` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `cisp` VARCHAR(191) NOT NULL,
+    `aisp` VARCHAR(191) NOT NULL,
+    `risp` VARCHAR(191) NOT NULL,
+    `area_cisp_km2` DOUBLE NOT NULL,
+    `area_aisp_km2` DOUBLE NOT NULL,
+    `area_risp_km2` DOUBLE NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `ArmaApreendida` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `cisp` VARCHAR(191) NOT NULL,
+    `mes` INTEGER NOT NULL,
+    `ano` INTEGER NOT NULL,
+    `aisp` VARCHAR(191) NOT NULL,
+    `risp` VARCHAR(191) NOT NULL,
+    `arma_fogo_arma_fabricacao_caseira` INTEGER NOT NULL,
+    `arma_fogo_carabina` INTEGER NOT NULL,
+    `arma_fogo_espingarda` INTEGER NOT NULL,
+    `arma_fogo_fuzil` INTEGER NOT NULL,
+    `arma_fogo_garrucha` INTEGER NOT NULL,
+    `arma_fogo_garruchao` INTEGER NOT NULL,
+    `arma_fogo_metralhadora` INTEGER NOT NULL,
+    `arma_fogo_outros` INTEGER NOT NULL,
+    `arma_fogo_pistola` INTEGER NOT NULL,
+    `arma_fogo_revolver` INTEGER NOT NULL,
+    `arma_fogo_submetralhadora` INTEGER NOT NULL,
+    `arma_fogo_total` INTEGER NOT NULL,
+    `arma_branca_total` INTEGER NOT NULL,
+    `artefato_explosivo_armadilha_explosiva` INTEGER NOT NULL,
+    `artefato_explosivo_armadilha_incendiaria` INTEGER NOT NULL,
+    `artefato_explosivo_bomba_fabricacao_caseira` INTEGER NOT NULL,
+    `artefato_explosivo_granada` INTEGER NOT NULL,
+    `artefato_explosivo_material_belico_explosivo` INTEGER NOT NULL,
+    `artefato_explosivo_material_explosivo` INTEGER NOT NULL,
+    `artefato_explosivo_material_explosivo_caseiro` INTEGER NOT NULL,
+    `artefato_explosivo_material_nao_identificado` INTEGER NOT NULL,
+    `artefato_explosivo_total` INTEGER NOT NULL,
+    `municao_total` INTEGER NOT NULL,
+    `simulacro_airsoft` INTEGER NOT NULL,
+    `simulacro_arma_fabricacao_caseira` INTEGER NOT NULL,
+    `simulacro_carabina` INTEGER NOT NULL,
+    `simulacro_espingarda` INTEGER NOT NULL,
+    `simulacro_fuzil` INTEGER NOT NULL,
+    `simulacro_garrucha` INTEGER NOT NULL,
+    `simulacro_garruchao` INTEGER NOT NULL,
+    `simulacro_metralhadora` INTEGER NOT NULL,
+    `simulacro_outros` INTEGER NOT NULL,
+    `simulacro_paintball` INTEGER NOT NULL,
+    `simulacro_pistola` INTEGER NOT NULL,
+    `simulacro_revolver` INTEGER NOT NULL,
+    `simulacro_submetralhadora` INTEGER NOT NULL,
+    `simulacro_total` INTEGER NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
