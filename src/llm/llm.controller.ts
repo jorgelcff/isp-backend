@@ -11,10 +11,8 @@ export class LlmController {
 
   @Post('consultar')
   async consultar(@Body('pergunta') pergunta: string) {
-    // Aqui você pode formatar a pergunta, se necessário
     const dados = await this.processarConsulta(pergunta);
 
-    // Gera a resposta usando o LLM
     const prompt = `
     Com base nos seguintes dados: ${JSON.stringify(dados)},
     responda de forma clara e detalhada à pergunta: ${pergunta}.
@@ -28,7 +26,6 @@ export class LlmController {
 
   @Post('analisar')
   async analisar(@Body('texto') texto: string, @Body('tema') tema: string) {
-    // Gera a resposta usando o LLM
     const prompt = `
     Como Analista do Instituto de Segurança pública do rio de janeiro, veja o json a seguir e responda de forma clara e detalhada acerca do tema: ${tema}.Caso precise fazer calculos a partir das chaves e valores do json faça e cite as fontes json:
     ${texto}
@@ -42,7 +39,6 @@ export class LlmController {
   private async processarConsulta(pergunta: string) {
     const processResult = [];
 
-    // Total de armas de fogo
     if (pergunta.includes('total de armas de fogo')) {
       const result = await this.prisma.armaapreendida.aggregate({
         _sum: {

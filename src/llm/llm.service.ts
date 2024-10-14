@@ -6,7 +6,7 @@ import { firstValueFrom } from 'rxjs';
 export class LlmService {
   private readonly llmUrl: string =
     'https://api.openai.com/v1/chat/completions';
-  private readonly apiKey: string = process.env.OPENAI_API_KEY; // Armazene sua chave API no ambiente
+  private readonly apiKey: string = process.env.OPENAI_API_KEY;
 
   constructor(private readonly httpService: HttpService) {}
 
@@ -15,7 +15,7 @@ export class LlmService {
       this.httpService.post(
         this.llmUrl,
         {
-          model: 'gpt-3.5-turbo', // ou o modelo que você está usando
+          model: 'gpt-3.5-turbo',
           messages: [{ role: 'user', content: prompt }],
         },
         {

@@ -18,7 +18,6 @@ export class IspService {
   async getArmas(page: number = 1, pageSize: number = 10, filters: any = {}) {
     const skip = (page - 1) * pageSize;
 
-    // Cria o objeto de condições para os filtros
     const where: any = {};
     if (filters.cisp) {
       where.cisp = filters.cisp;
@@ -55,25 +54,21 @@ export class IspService {
   }
 
   async createArma(data: any) {
-    // Criar a nova apreensão
     const newArma = await this.prisma.armaapreendida.create({
       data,
     });
 
-    // Recalcular os totais após a criação
     await this.recalculateTotals(newArma.id);
 
     return newArma;
   }
 
   async updateArma(id: number, data: any) {
-    // Atualizar a apreensão
     const updatedArma = await this.prisma.armaapreendida.update({
       where: { id },
       data,
     });
 
-    // Recalcular os totais
     await this.recalculateTotals(updatedArma.id);
 
     return updatedArma;
@@ -237,7 +232,6 @@ export class IspService {
       totalSimulacros: item._sum.simulacro_total || 0,
     }));
 
-    // Ordena os resultados pelo valor de região (cisp)
     result.sort((a, b) => Number(a.região) - Number(b.região));
 
     return result;
@@ -450,7 +444,6 @@ export class IspService {
           result._sum.artefato_explosivo_material_explosivo_caseiro +
           result._sum.artefato_explosivo_material_nao_identificado || 0,
       totalMunicoes: result._sum.municao_total || 0,
-      // Adicione outras somas conforme necessário
     };
   }
 }
